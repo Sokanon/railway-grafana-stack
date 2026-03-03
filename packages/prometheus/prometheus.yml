@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # Grafana metrics (via Railway private networking)
+  - job_name: "grafana"
+    static_configs:
+      - targets: ["${GRAFANA_HOST}:3000"]
+
+  # Add your own scrape targets below by setting EXTRA_SCRAPE_TARGETS
+  # or by forking and editing this file
+  # - job_name: "my-app"
+  #   static_configs:
+  #     - targets: ["my-app.railway.internal:8080"]
