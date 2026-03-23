@@ -27,20 +27,27 @@ Your apps --push logs--> Loki (port 3100)
 
 | Variable | Description | Default |
 |----------|-------------|---------|
+| `PORT` | Port Grafana listens on (Railway healthcheck port) | `3000` |
 | `GF_SECURITY_ADMIN_PASSWORD` | Admin login password | Auto-generated |
 | `GF_SECURITY_ADMIN_USER` | Admin username | `admin` |
 | `PROMETHEUS_HOST` | Prometheus private domain (auto-wired) | `${{Prometheus.RAILWAY_PRIVATE_DOMAIN}}` |
+| `PROMETHEUS_PORT` | Prometheus listen port | `9090` |
 | `LOKI_HOST` | Loki private domain (auto-wired) | `${{Loki.RAILWAY_PRIVATE_DOMAIN}}` |
+| `LOKI_PORT` | Loki listen port | `3100` |
 
 ### Prometheus
 
 | Variable | Description | Default |
 |----------|-------------|---------|
+| `PORT` | Port Prometheus listens on (Railway healthcheck port) | `9090` |
 | `GRAFANA_HOST` | Grafana private domain for scraping (auto-wired) | `${{Grafana.RAILWAY_PRIVATE_DOMAIN}}` |
+| `GRAFANA_PORT` | Grafana listen port for scraping | `3000` |
 
 ### Loki
 
-No required environment variables. Runs in single-instance mode with filesystem storage.
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PORT` | Port Loki listens on (Railway healthcheck port) | `3100` |
 
 ## Post-Deployment
 

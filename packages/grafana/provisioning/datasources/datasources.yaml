@@ -4,14 +4,14 @@ datasources:
   - name: Prometheus
     type: prometheus
     access: proxy
-    url: http://${PROMETHEUS_HOST}:9090
+    url: http://${PROMETHEUS_HOST}:${PROMETHEUS_PORT}
     isDefault: true
     editable: true
 
   - name: Loki
     type: loki
     access: proxy
-    url: http://${LOKI_HOST}:3100
+    url: http://${LOKI_HOST}:${LOKI_PORT}
     editable: true
     jsonData:
       maxLines: 1000

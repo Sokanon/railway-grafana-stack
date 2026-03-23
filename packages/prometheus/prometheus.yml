@@ -6,12 +6,12 @@ scrape_configs:
   # Prometheus self-monitoring
   - job_name: "prometheus"
     static_configs:
-      - targets: ["localhost:9090"]
+      - targets: ["localhost:${LISTEN_PORT}"]
 
   # Grafana metrics (via Railway private networking)
   - job_name: "grafana"
     static_configs:
-      - targets: ["${GRAFANA_HOST}:3000"]
+      - targets: ["${GRAFANA_HOST}:${GRAFANA_PORT}"]
 
   # Add your own scrape targets below by setting EXTRA_SCRAPE_TARGETS
   # or by forking and editing this file
